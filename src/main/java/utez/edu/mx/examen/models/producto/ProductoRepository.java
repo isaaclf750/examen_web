@@ -1,8 +1,13 @@
 package utez.edu.mx.examen.models.producto;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import utez.edu.mx.examen.services.producto.ProductoServices;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
-public interface ProductoRepository extends JpaRepository <ProductoModels, Long> {
+@Repository
+public interface ProductoRepository extends JpaRepository<ProductoModels, Long> {
+
+    ProductoModels findByNombre(String nombre);
 
 }

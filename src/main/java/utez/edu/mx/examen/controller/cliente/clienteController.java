@@ -1,9 +1,7 @@
 package utez.edu.mx.examen.controller.cliente;
 
-
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import utez.edu.mx.examen.models.cliente.ClienteModels;
 import utez.edu.mx.examen.services.cliente.ClienteServices;
 
 @RestController
@@ -14,5 +12,10 @@ public class clienteController {
 
     public clienteController(ClienteServices clienteServices) {
         this.clienteServices = clienteServices;
+    }
+
+    @GetMapping("/buscar")
+    public ClienteModels buscarPorNombre(@RequestParam String nombre) {
+        return clienteServices.buscarPorNombre(nombre);
     }
 }
